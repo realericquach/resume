@@ -1,16 +1,20 @@
 import './App.css';
-import * as GrIcons from "react-icons/gr"
-import eric from './images/eric.jpg'
-import { Document, Page } from 'react-pdf';
+/*import * as GrIcons from "react-icons/gr"
+import eric from './images/eric.jpg'*/
+import { Document, Page, pdfjs } from 'react-pdf';
+import resume from './images/Eric Quach Resume.pdf'
 
-import resume from `/images/Eric Quach Resume.pdf`
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 function App() {
   return (
     <div className="home">
-      <Documnet file={resume}>
-        <Page pageNumber={(1)}></Page>
-      </Documnet>
+      <Document file={resume}>
+        <Page pageNumber={1}></Page>
+      </Document>
+      <div>
+        <h1> Sorry this website is still a work in progress! For now its just my resume again :^)</h1>
+      </div>
     </div>
   );
 }
